@@ -26,8 +26,8 @@ ul {
 }
 
 // Variables
-$generic-box-shadow: rgba(0,0,0,0.1) 0px 0px 0px 1px rgba(0,0,0,0.1) 0px 4px 11px;
-$geberic-border: 1px solid #f1f1f1;
+$generic-box-shadow: rgba(0,0,0,0.1) 0px 0px 0px 1px, rgba(0,0,0,0.1) 0px 4px 11px;
+$generic-border: 1px solid #f1f1f1;
 $generic-bg: #db4c3f;
 
 // Mixins
@@ -206,7 +206,7 @@ header {
     padding-top: 74px;
     position: fixed;
     overflow: hidden;
-    border-right: $geberic-border;
+    border-right: $generic-border;
     background-color: #fafafa;
 
     @include mq('900px') {
@@ -269,44 +269,44 @@ header {
                 color: #af38eb;
             }
         }
+    }
 
-        &__projects {
-            padding-left: 3px;
-        }
+    &__projects {
+        padding-left: 3px;
+    }
 
-        &__project {
-            @include va('left');
-        }
+    &__project {
+        @include va('left');
+    }
 
-        &__dot {
+    &__dot {
+        margin-right: 10px;
+        font-size: 30px;
+    }
+
+    &__middle {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        border-bottom: $generic-border;
+        padding-left: 10px;
+        cursor: pointer;
+
+        span {
+            color: #00008a;
             margin-right: 10px;
-            font-size: 30px;
+
+            svg.hidden-project {
+                transform: rotate(-90deg);
+            }
         }
 
-        &__middle {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            border-bottom: $geberic-border;
-            padding-left: 10px;
-            cursor: pointer;
-
-            span {
-                color: #00008a;
-                margin-right: 10px;
-
-                svg.hidden-project {
-                    transform: rotate(-90deg);
-                }
-            }
-
-            h2 {
-                margin: 0;
-                color: #333333;
-                font-size: 15px;
-                font-weight: bold;
-                padding-bottom: 20px;
-            }
+        h2 {
+            margin: 0;
+            color: #333333;
+            font-size: 15px;
+            font-weight: bold;
+            padding-bottom: 20px;
         }
     }
 
@@ -334,6 +334,39 @@ header {
                 font-weight: bold;
                 background-color: white;
             }
+        }
+    }
+}
+
+// Show confirm delete
+
+.project-delete-modal {
+    position: relative;
+
+    &__inner {
+        @include box-overlay();
+        z-index: 99;
+        width: 200px;
+        padding: 10px;
+        top: 10px;
+        right: 0;
+        background-color: white;
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: normal;
+            font-weight: normal;
+            font-size: 15px;
+        }
+
+        button {
+            @include btn('50px');
+        }
+
+        span {
+            @include cancel();
+            font-weight: normal;
         }
     }
 }

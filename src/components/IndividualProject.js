@@ -11,11 +11,13 @@ export const IndividualProject = ({ project }) => {
 
     const deleteProject = docId => {
         firebase.firestore().collection('projects').doc(docId).delete()
-            .then(() => {
+            .then((data) => {
                 setProjects([...projects]);
                 setSelectedProject('INBOX')
             });
     };
+
+    console.log(project);
 
     return (
         <>
@@ -36,8 +38,8 @@ export const IndividualProject = ({ project }) => {
                                 onClick={() => deleteProject(project.docId)}
                             >
                                 Delete
-                                <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
                             </button>
+                            <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
                         </div>
                     </div>
                 )}

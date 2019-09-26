@@ -24,11 +24,12 @@ export const Projects = ({ activeValue = null }) => {
                     setSelectedProject(project.projectId)
                 }}
                 onClick={() => {
+                    console.log('clicked');
                     setActive(project.projectId)
                     setSelectedProject(project.projectId)
                 }}
             >
-                <IndividualProject />
+                <IndividualProject project={project}/>
             </li>
         ))
     );

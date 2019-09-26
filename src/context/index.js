@@ -5,15 +5,15 @@ import {
  } from './project-context';
 
  import { 
-    SelectedProjectsProvider,
-    SelectedProjectsContext,
+    SelectedProjectProvider,
+    SelectedProjectContext,
     useSelectedProjectValue
 } from './selected-project-context';
 
  export { 
      ProjectsContext,
-     SelectedProjectsContext,
+     SelectedProjectContext,
      ProjectsProvider,
-     SelectedProjectsProvider,
+     SelectedProjectProvider,
      useProjectsValue,
      useSelectedProjectValue };

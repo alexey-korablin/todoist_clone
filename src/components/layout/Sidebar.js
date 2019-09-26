@@ -7,9 +7,10 @@ import {
 } from 'react-icons/fa';
 import { useSelectedProjectValue } from '../../context';
 import { Projects } from '../Projects';
+import { AddProject } from '../AddProject';
 
 export const Sidebar = () => {
-    const { setSelectedProject } = useSelectedProjectValue;
+    const { setSelectedProject } = useSelectedProjectValue();
     const [active, setActive] = useState('inbox');
     const [showProjects, setShowProjects] = useState(true);
 
@@ -34,9 +35,9 @@ export const Sidebar = () => {
                 <h2>Projects</h2>
             </div>
             <ul className='sidebar__projects'>
-                Projects will be here!
+                {showProjects && <Projects />}
             </ul>
-            <Projects />
+            {showProjects && <AddProject />}
         </div>
     );
 }
