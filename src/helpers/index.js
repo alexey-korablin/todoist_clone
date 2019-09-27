@@ -1,5 +1,5 @@
 import { collatedTasks } from '../constants';
-import { Projects } from '../components/Projects';
+// import { Projects } from '../components/Projects';
 
 export const getTitle = (projects, projectId) => 
     projects.find(project => project.projectId === projectId);
