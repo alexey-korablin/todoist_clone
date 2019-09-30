@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons';
+import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
 import { firebase } from  '../firebase';
 import { useSelectedProjectValue } from '../context';
@@ -7,7 +7,7 @@ import { useSelectedProjectValue } from '../context';
 export const AddTask = ({
     showAddTaskMain=true,
     shouldShowMain=false,
-    showQuickAddtask,
+    showQuickAddTask,
     setShowQuickAddTask
 }) => {
     const [task, setTask] = useState('');
@@ -18,6 +18,8 @@ export const AddTask = ({
     const [showTaskDate, setShowTaskDate] = useState(false);
 
     const { selectedProject } = useSelectedProjectValue();
+
+    console.log(showMain, showQuickAddTask);
 
     const addTask = () => {
         const projectId = project || selectedProject;
@@ -47,7 +49,7 @@ export const AddTask = ({
     };
     return (
         <div
-            className={showQuickAddtask ? 'add-task add-task__overlay' : 'add-task'}
+            className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
             data-testid='add-task-comp'
         >
             {showAddTaskMain && (
@@ -57,23 +59,73 @@ export const AddTask = ({
                     onClick={() => setShowMain(!showMain)}
                 >
                     <span className='add-task__plus'>+</span>
-                    <span className='add-task__text'>Add Text</span>
+                    <span className='add-task__text'>Add Task</span>
                 </div>
             )}
             {
-                (showMain || showQuickAddtask) && (
+                (showMain || showQuickAddTask) && (
                     <div className='add-task__main' data-testid='add-task-main'>
-                        {showQuickAddtask && (
+                        {showQuickAddTask && (
                             <>
                                 <div data-testid='quick-add-task'>
                                     <h2 className='header'>Quick Add Task</h2>
                                     <span
                                         className='add-task__cancel-x'
-                                        data-testid='add-task-quick'
-                                    ></span>
+                                        data-testid='add-task-quick-cancel'
+                                        onClick={() => {
+                                            setShowQuickAddTask(false);
+                                            setShowMain(false);
+                                            setShowProjectOverlay(false);
+                                        }}
+                                    >
+                                        X
+                                    </span>
                                 </div>
                             </>
                         )}
+                        <p>Project Overlay Here</p>
+                        <p>Taskdate Here</p>
+                        <input
+                            className='add-task__content'
+                            data-testid='add-task__content'
+                            onChange={e => setTask(e.target.value)}
+                            value={task}
+                            type='text'
+                        />
+                        <button
+                            className='add-task__submit'
+                            type='button'
+                            data-testid='add-task'
+                            onClick={() => addTask()}
+                        >
+                            Add Task
+                        </button>
+                        {!showQuickAddTask && (
+                            <span
+                                className='add-task__cancel'
+                                data-testid='add-task-main-cancel'
+                                onClick={() => {
+                                    setShowMain(false);
+                                    setShowProjectOverlay(false);
+                                }}
+                            >
+                                Cancel
+                            </span>
+                        )}
+                        <span
+                            className='add-task__project'
+                            data-testid='show-project-overlay'
+                            onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+                        >
+                            <FaRegListAlt />
+                        </span>
+                        <span
+                            className='add-task__date'
+                            data-testid='show-task-date-overlay'
+                            onClick={() => setShowTaskDate(!showTaskDate)}
+                        >
+                            <FaRegCalendarAlt />
+                        </span>
                     </div>
                 )
             }
