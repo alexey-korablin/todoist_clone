@@ -499,7 +499,30 @@ header {
 
     &__content {
         width: 100%;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        border-radius: 3px;
+        height: 35px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
+
+    &__cancel, &__submit {
+        @include no-select;
+    }
+
+    &__cancel {
+        @include cancel();
+    }
+
+    &__submit {
+        @include btn(90px);
+    }
+}
+
+.add-task__shallow, .add-task__plus {
+    color: #dd4b39;
+    font-size: 18px;
 }
 
 .add-task__plus, .add-project__plus {
@@ -512,6 +535,31 @@ header {
     color: #545454;
     font-size: 14px;
     margin-left: 15px;
+}
+
+// Task Date
+
+.task-date {
+    @include box-overlay();
+
+    span:first-of-type {
+        margin-right: 10px;
+
+        svg {
+            fill: gray;
+        }
+    }
+}
+
+// Project Overlay
+
+.project-overlay {
+    @include box-overlay();
+    background-color: #fff;
+
+    &__list li {
+        @include task-item();
+    }
 }
 
 // Add project
