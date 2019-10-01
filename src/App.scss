@@ -516,7 +516,7 @@ header {
     }
 
     &__submit {
-        @include btn(90px);
+        @include btn('90px');
     }
 }
 
@@ -541,6 +541,28 @@ header {
 
 .task-date {
     @include box-overlay();
+    background-color: #fff;
+    width: 200px;
+    right: 0;
+
+    &__list li {
+        @include task-item();
+
+        div:nth-child(1) {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            span:first-of-type {
+                margin-right: 10px;
+
+                svg {
+                    fill: gray;
+                }
+            }
+        }
+    }
 
     span:first-of-type {
         margin-right: 10px;
@@ -584,7 +606,7 @@ header {
     }
 
     &__submit {
-        @include btn(100px);
+        @include btn('100px');
     }
 
     &__cancel {
