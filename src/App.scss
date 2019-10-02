@@ -109,6 +109,11 @@ $generic-bg: #db4c3f;
     }
 }
 
+@mixin transparent-btn() {
+    background-color: transparent;
+    border: none;
+}
+
 // Darkmode
 .darkmode {
     header {
@@ -187,15 +192,25 @@ header {
                             font-size: 30px;
 
                             button {
-                                background-color: transparent;
-                                border: none;
+                                @include transparent-btn();
                                 color: white;
+                                cursor: pointer;
                             }
                         }
 
-                        &.settings__dark-mode {
-                            width: 20px;
-                            height: 20px;
+                        &.settings__darkmode {
+
+                            button {
+                                @include transparent-btn();
+                                color: white;
+                                cursor: pointer;
+                                display: flex;
+
+                                svg {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                            }
                         }
                     }
                 }
@@ -235,7 +250,7 @@ header {
         div:nth-child(1) {
             display: flex;
             align-items: center;
-            justify-content: start;
+            justify-content: flex-start;
             width: 100%;
             outline: none;
         }

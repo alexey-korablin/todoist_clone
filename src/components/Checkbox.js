@@ -7,7 +7,13 @@ export const Checkbox = ({ id }) => {
             .update({ archived: true });
     };
     return (
-        <div className='checkbox-holder' onClick={() => archiveTask()}>
+        <div 
+            role='button'
+            tabIndex={0}
+            className='checkbox-holder' 
+            onClick={() => archiveTask()}
+            onKeyDown={() => archiveTask()}
+        >
             <span className='checkbox' />
         </div>
     );

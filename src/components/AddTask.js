@@ -56,9 +56,12 @@ export const AddTask = ({
         >
             {showAddTaskMain && (
                 <div
+                    role='button'
+                    tabIndex={0}
                     className='add-task__shallow'
                     data-testid='show-main-action'
                     onClick={() => setShowMain(!showMain)}
+                    onKeyDown={() => setShowMain(!showMain)}
                 >
                     <span className='add-task__plus'>+</span>
                     <span className='add-task__text'>Add Task</span>

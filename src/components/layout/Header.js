@@ -20,7 +20,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
                             className='settings__add'
                         >
                             <button
-                                role='button'
+                                type='button'
                                 tabIndex={0}
                                 onClick={() => {
                                     setShouldShowMain(true);
@@ -37,9 +37,15 @@ export const Header = ({ darkMode, setDarkMode }) => {
                         <li 
                             data-testid='dark-mode-action'
                             className='settings__darkmode'
-                            onClick={() => setDarkMode(!darkMode) }
                         >
-                            <FaPizzaSlice/>
+                                <button
+                                    type='button'
+                                    tabIndex={0}
+                                    onClick={() => setDarkMode(!darkMode) }
+                                    onKeyDown={() => setDarkMode(!darkMode) }
+                                >
+                                    <FaPizzaSlice/>
+                                </button>
                         </li>
                     </ul>
                 </div>
