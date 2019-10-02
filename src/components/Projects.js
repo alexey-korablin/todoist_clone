@@ -22,7 +22,7 @@ export const Projects = ({ activeValue = null }) => {
             >
                 <div
                     role='button'
-                    tabIndex='0'
+                    tabIndex={0}
                     onKeyDown={() => {
                         setActive(project.projectId)
                         setSelectedProject(project.projectId)

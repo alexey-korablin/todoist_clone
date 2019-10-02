@@ -185,6 +185,12 @@ header {
                         &.settings__add {
                             margin-right: 15px;
                             font-size: 30px;
+
+                            button {
+                                background-color: transparent;
+                                border: none;
+                                color: white;
+                            }
                         }
 
                         &.settings__dark-mode {
@@ -226,11 +232,12 @@ header {
         padding: 5px 0;
         cursor: pointer;
 
-        div:hover {
-            @include va();
+        div:nth-child(1) {
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: start;
             width: 100%;
+            outline: none;
         }
 
         &-delete {
