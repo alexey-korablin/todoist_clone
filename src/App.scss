@@ -235,23 +235,22 @@ header {
     }
 
     li {
-        padding-left: 10px;
-        padding-right: 15px;
-
         &:hover .sidebar__project-delete {
             display: flex;
         }
     }
 
     &__project {
-        padding: 5px 0;
         cursor: pointer;
-
+        
         div:nth-child(1) {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             width: 100%;
+            padding: 5px 0;
+            padding-left: 10px;
+            padding-right: 15px;
             outline: none;
         }
 
@@ -620,6 +619,13 @@ header {
 
     &__list li {
         @include task-item();
+
+        padding: 0;
+
+        div {
+            width: 100%;
+            padding: 10px;
+        }
     }
 }
 

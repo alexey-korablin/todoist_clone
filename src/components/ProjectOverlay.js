@@ -19,6 +19,7 @@ export const ProjectOverlay = ({
                             data-testid='project-overlay-action'
                         >
                             <div
+                                aria-label='Select the task project'
                                 role='button'
                                 tabIndex={0}
                                 onClick={() => {

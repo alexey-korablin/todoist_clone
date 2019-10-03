@@ -54,6 +54,7 @@ export const AddProject = ({ shouldShow=false }) => {
             )}
             <span className='add-project__plus'>+</span>
             <span 
+                aria-label='Add Project'
                 className='add-project__text'
                 data-testid='add-project-action'
                 onClick={() => setShow(!show)}
