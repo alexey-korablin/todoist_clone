@@ -351,11 +351,14 @@ header {
             padding-right: 0;
 
             div:nth-child(1) {
+                display: flex;
                 padding: 10px 0 10px 10px;
                 width: 100%;
                 
                 span:first-of-type {
                     margin-right: 10px;
+                    display: flex;
+                    align-items: center;
     
                     svg {
                         width: 18px;

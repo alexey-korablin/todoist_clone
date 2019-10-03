@@ -21,7 +21,7 @@ export const Sidebar = () => {
                     data-testid='inbox' 
                     className={ active === 'inbox' ? 'active' : undefined }
                 >
-                    <span
+                    <div
                         role='button'
                         tabIndex={0}
                         onClick={() => {
@@ -32,14 +32,16 @@ export const Sidebar = () => {
                             setActive('inbox');
                             setSelectedProject('INBOX');
                         }}
-                    ><FaInbox /></span>
-                    <span>Inbox</span>
+                    >
+                        <span><FaInbox /></span>
+                        <span>Inbox</span>
+                    </div>
                 </li>
                 <li 
                     data-testid='today' 
                     className={ active === 'today' ? 'active' : undefined }
                 >
-                    <span
+                    <div
                         role='button'
                         tabIndex={0}
                         onClick={() => {
@@ -51,9 +53,11 @@ export const Sidebar = () => {
                             setSelectedProject('TODAY');
                         }}
                     >
-                        <FaRegCalendar/>
-                    </span>
-                    <span>Today</span>
+                        <span>
+                            <FaRegCalendar/>
+                        </span>
+                        <span>Today</span>
+                    </div>
                 </li>
                 <li 
                     data-testid='next_7' 
