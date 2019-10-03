@@ -75,9 +75,16 @@ export const AddTask = ({
                                 <div data-testid='quick-add-task'>
                                     <h2 className='header'>Quick Add Task</h2>
                                     <span
+                                        role='button'
+                                        tabIndex={0}
                                         className='add-task__cancel-x'
                                         data-testid='add-task-quick-cancel'
                                         onClick={() => {
+                                            setShowQuickAddTask(false);
+                                            setShowMain(false);
+                                            setShowProjectOverlay(false);
+                                        }}
+                                        onKeyDown={() => {
                                             setShowQuickAddTask(false);
                                             setShowMain(false);
                                             setShowProjectOverlay(false);
@@ -128,16 +135,22 @@ export const AddTask = ({
                             </span>
                         )}
                         <span
+                            role='button'
+                            tabIndex={0}
                             className='add-task__project'
                             data-testid='show-project-overlay'
                             onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+                            onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
                         >
                             <FaRegListAlt />
                         </span>
                         <span
+                            role='button'
+                            tabIndex={0}
                             className='add-task__date'
                             data-testid='show-task-date-overlay'
                             onClick={() => setShowTaskDate(!showTaskDate)}
+                            onKeyDown={() => setShowTaskDate(!showTaskDate)}
                         >
                             <FaRegCalendarAlt />
                         </span>
