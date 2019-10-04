@@ -1,4 +1,4 @@
-import React, {useState, useEffects} from 'react';
+import React from 'react';
 import moment from 'moment';
 import { FaSpaceShuttle } from 'react-icons/fa';
 import { FaSun } from 'react-icons/fa';
@@ -12,6 +12,7 @@ export const TaskDate = ({
             <ul className='task-date__list'>
                 <li data-testid='task-date-overlay'>
                     <div
+                        aria-label={'Select today as the task date'}
                         role='button'
                         tabIndex={0}
                         onClick={() => {
@@ -31,6 +32,7 @@ export const TaskDate = ({
                 </li>
                 <li data-testid='task-date-tomorrow'>
                     <div
+                        aria-label={'Select tomorrow as the task date'}
                         role='button'
                         tabIndex={0}
                         onClick={() => {
@@ -50,6 +52,7 @@ export const TaskDate = ({
                 </li>
                 <li data-testid='task-date-next-week'>
                     <div
+                        aria-label={'Select next week as the task date'}
                         role='button'
                         tabIndex={0}
                         onClick={() => {
