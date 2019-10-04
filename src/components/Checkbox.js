@@ -12,6 +12,7 @@ export const Checkbox = ({ id, taskDesc }) => {
             role='button'
             tabIndex={0}
             className='checkbox-holder' 
+            data-testid='checkbox-action'
             onClick={() => archiveTask()}
             onKeyDown={() => archiveTask()}
         >
