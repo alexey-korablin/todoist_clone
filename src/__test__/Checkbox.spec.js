@@ -25,5 +25,19 @@ describe('Checkbox', () => {
             // debug();
             expect(queryByTestId('checkbox-action')).toBeTruthy();
         });
+        it('renders the task checkbox and accepts a onClick', () => {
+            const { queryByTestId, debug } = render(
+                <Checkbox id='1' taskDesc='Finish the tutorial series!' />
+            );
+            expect(queryByTestId('checkbox-action')).toBeTruthy();
+            fireEvent.click(queryByTestId('checkbox-action'));
+        });
+        it('renders the task checkbox and accepts a onKeyDown', () => {
+            const { queryByTestId, debug } = render(
+                <Checkbox id='1' taskDesc='Finish the tutorial series!' />
+            );
+            expect(queryByTestId('checkbox-action')).toBeTruthy();
+            fireEvent.keyDown(queryByTestId('checkbox-action'));
+        });
     });
 });
