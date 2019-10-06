@@ -10,8 +10,9 @@ export const TaskDate = ({
     setShowTaskDate }) => showTaskDate && (
         <div className='task-date' data-testid='task-date-overlay'>
             <ul className='task-date__list'>
-                <li data-testid='task-date-today'>
+                <li>
                     <div
+                        data-testid='task-date-today'
                         aria-label={'Select today as the task date'}
                         role='button'
                         tabIndex={0}
@@ -30,8 +31,9 @@ export const TaskDate = ({
                         <span>Today</span>
                     </div>
                 </li>
-                <li data-testid='task-date-tomorrow'>
+                <li>
                     <div
+                        data-testid='task-date-tomorrow'
                         aria-label={'Select tomorrow as the task date'}
                         role='button'
                         tabIndex={0}
@@ -50,8 +52,9 @@ export const TaskDate = ({
                         <span>Tomorrow</span>
                     </div>
                 </li>
-                <li data-testid='task-date-next-week'>
+                <li>
                     <div
+                        data-testid='task-date-next-week'
                         aria-label={'Select next week as the task date'}
                         role='button'
                         tabIndex={0}

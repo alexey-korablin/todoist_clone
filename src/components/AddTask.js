@@ -110,7 +110,7 @@ export const AddTask = ({
                         <input
                             aria-label='Enter your task'
                             className='add-task__content'
-                            data-testid='add-task__content'
+                            data-testid='add-task-content'
                             onChange={e => setTask(e.target.value)}
                             value={task}
                             type='text'
