@@ -1,8 +1,7 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { AddTask } from '../components/AddTask';
-import { firebase } from '../firebase';
-import { useSelectedProjectValue, useProjectsValue } from '../context';
+import { useSelectedProjectValue } from '../context';
 
 beforeEach(cleanup);
 
@@ -80,14 +79,24 @@ describe('<AddTask />', () => {
             expect(queryByTestId('project-overlay')).toBeTruthy();
         });
 
-        it('renders the <AddTask /> task date overlay when clicked', () => {
+        it('renders the <AddTask /> task date overlay when using onClick', () => {
             const { queryByTestId } = render(<AddTask showAddTaskMain />);
 
             fireEvent.click(queryByTestId('show-main-action'));
             expect(queryByTestId('add-task-main')).toBeTruthy();
 
             fireEvent.click(queryByTestId('show-task-date-overlay'));
-            expect(queryByTestId('show-task-date-overlay')).toBeTruthy();
+            expect(queryByTestId('task-date-overlay')).toBeTruthy();
+        });
+
+        it('renders the <AddTask /> task date overlay when using onKeyDown', () => {
+            const { queryByTestId } = render(<AddTask showAddTaskMain />);
+
+            fireEvent.keyDown(queryByTestId('show-main-action'));
+            expect(queryByTestId('add-task-main')).toBeTruthy();
+
+            fireEvent.keyDown(queryByTestId('show-task-date-overlay'));
+            expect(queryByTestId('task-date-overlay')).toBeTruthy();
         });
 
         it('hides the <AddTask /> main when cancel is clicked using onClick', () => {

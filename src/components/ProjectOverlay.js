@@ -14,11 +14,9 @@ export const ProjectOverlay = ({
             <div className='project-overlay' data-testid='project-overlay'>
                 <ul className='project-overlay__list'>
                     {projects.map(project => (
-                        <li
-                            key={projects.projectId}
-                            data-testid='project-overlay-action'
-                        >
+                        <li key={project.projectId}>
                             <div
+                                data-testid='project-overlay-action'
                                 aria-label='Select the task project'
                                 role='button'
                                 tabIndex={0}
