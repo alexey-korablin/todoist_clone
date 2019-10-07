@@ -134,6 +134,10 @@ export const AddTask = ({
                                     setShowMain(false);
                                     setShowProjectOverlay(false);
                                 }}
+                                onKeyDown={() => {
+                                    setShowMain(false);
+                                    setShowProjectOverlay(false);
+                                }}
                             >
                                 Cancel
                             </span>
