@@ -26,7 +26,8 @@ jest.mock('../context', () => ({
                 projectId: "1",
                 userId: "t5MyE8PUN2"
             }
-        ]
+        ],
+        setProjects: jest.fn()
     }))
 }));
 
@@ -57,6 +58,17 @@ describe('<AddProject />', () => {
                 target: { value: 'Best project in the world!' }
             });
             expect(queryByTestId('project-name').value).toBe('Best project in the world!');
+            fireEvent.click(queryByTestId('add-project-submit'));
+        });
+
+        it('hides the project overlay when cancelled', () => {
+            const { queryByTestId, getByText } = render(<AddProject shouldShow />);
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeTruthy();
+            
+            fireEvent.click(getByText('Cancel'));
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeFalsy();
         });
     })
 })
