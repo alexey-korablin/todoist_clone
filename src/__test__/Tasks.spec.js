@@ -71,4 +71,15 @@ describe('<Tasks />', () => {
         expect(queryByTestId('tasks')).toBeTruthy();
         expect(queryByTestId('project-name').textContent).toBe('Music');
     });
+
+    it('renders a task with a collated title', () => {
+        useSelectedProjectValue.mockImplementation(() => ({
+            setSelectedProject: jest.fn(() => 'INBOX'),
+            selectedProject: 'INBOX'
+        }));
+
+        const { queryByTestId } = render(<Tasks />);
+        expect(queryByTestId('tasks')).toBeTruthy();
+        expect(queryByTestId('project-name').textContent).toBe('Inbox');
+    });
 });
