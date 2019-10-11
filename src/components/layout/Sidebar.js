@@ -17,11 +17,12 @@ export const Sidebar = () => {
     return (
         <div className='sidebar' data-testid='sidebar'>
             <ul className='sidebar__generic'>
-                <li 
-                    data-testid='inbox' 
+                <li
                     className={ active === 'inbox' ? 'active' : undefined }
+                    data-testid='inbox'
                 >
                     <div
+                        data-testid='inbox-action' 
                         aria-label='Show Inbox Tasks'
                         role='button'
                         tabIndex={0}
@@ -38,11 +39,12 @@ export const Sidebar = () => {
                         <span>Inbox</span>
                     </div>
                 </li>
-                <li 
-                    data-testid='today' 
+                <li
                     className={ active === 'today' ? 'active' : undefined }
+                    data-testid='today'
                 >
                     <div
+                        data-testid='today-action'
                         aria-label='Show Today Tasks'
                         role='button'
                         tabIndex={0}
@@ -61,11 +63,12 @@ export const Sidebar = () => {
                         <span>Today</span>
                     </div>
                 </li>
-                <li 
-                    data-testid='next_7' 
+                <li
                     className={ active === 'next_7' ? 'active' : undefined }
+                    data-testid='next_7'
                 >
                 <div
+                    data-testid='next_7-action' 
                     aria-label='Show Tasks For The Next 7 Days'
                     role='button'
                     tabIndex={0}

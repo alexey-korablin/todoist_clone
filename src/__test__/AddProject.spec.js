@@ -50,7 +50,7 @@ describe('<AddProject />', () => {
             expect(queryByTestId('add-project')).toBeTruthy();
         });
 
-        it('renders <AddProject /> and adds a project', () => {
+        it('renders <AddProject /> and adds a project using onClick', () => {
             const { queryByTestId } = render(<AddProject shouldShow />);
             expect(queryByTestId('add-project')).toBeTruthy();
 
@@ -61,12 +61,53 @@ describe('<AddProject />', () => {
             fireEvent.click(queryByTestId('add-project-submit'));
         });
 
-        it('hides the project overlay when cancelled', () => {
+        it('renders <AddProject /> and adds a project using onKeyDown', () => {
+            const { queryByTestId } = render(<AddProject shouldShow />);
+            expect(queryByTestId('add-project')).toBeTruthy();
+
+            fireEvent.change(queryByTestId('project-name'), {
+                target: { value: 'Best project in the world!' }
+            });
+            expect(queryByTestId('project-name').value).toBe('Best project in the world!');
+            fireEvent.keyDown(queryByTestId('add-project-submit'));
+        });
+
+        it('hides the project overlay when cancelled onClick', () => {
             const { queryByTestId, getByText } = render(<AddProject shouldShow />);
             expect(queryByTestId('add-project')).toBeTruthy();
             expect(queryByTestId('add-project-inner')).toBeTruthy();
             
             fireEvent.click(getByText('Cancel'));
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeFalsy();
+        });
+
+        it('hides the project overlay when cancelled onKeyDown', () => {
+            const { queryByTestId, getByText } = render(<AddProject shouldShow />);
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeTruthy();
+            
+            fireEvent.keyDown(getByText('Cancel'));
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeFalsy();
+        });
+
+        it('hides the project overlay using onClick singular and reverse action', () => {
+            const { queryByTestId } = render(<AddProject shouldShow />);
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeTruthy();
+            
+            fireEvent.click(queryByTestId('add-project-action'));
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeFalsy();
+        });
+
+        it('hides the project overlay using onKeyDown singular and reverse action', () => {
+            const { queryByTestId } = render(<AddProject shouldShow />);
+            expect(queryByTestId('add-project')).toBeTruthy();
+            expect(queryByTestId('add-project-inner')).toBeTruthy();
+            
+            fireEvent.keyDown(queryByTestId('add-project-action'));
             expect(queryByTestId('add-project')).toBeTruthy();
             expect(queryByTestId('add-project-inner')).toBeFalsy();
         });
